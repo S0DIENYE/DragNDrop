@@ -1,0 +1,13 @@
+#file-picker-label{
+    margin: 5px 0!important;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    background: #4299e1;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#file-picker{
+    display: none;
+}
