@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Button, Image } from '@chakra-ui/react';
+import { Box, Text, Button, Image, useToast } from '@chakra-ui/react';
 import FolderIcon from '../assets/folder-icon.svg';
 import InputFile from './InputFile';
 import './style.css';
@@ -8,6 +8,8 @@ const DropZone = () => {
   const preventTab = (e) => {
     e.preventDefault()
   }
+
+  const toast = useToast();
 
   const dropZoneFn = (event) =>{
     event.preventDefault();
@@ -20,11 +22,17 @@ const DropZone = () => {
         const fileData = e.target.result; // The file data
   
         // Do something with the file data here
-        console.log(fileData);
+        // console.log(fileData);
       };
   
       reader.readAsDataURL(file);
-      console.log(file);
+      toast({
+        title: 'Successfully uploaded',
+        description: file.name,
+        status: 'success',
+        duration: 5000,
+        isClosable: false
+      });
     }
   }
 
